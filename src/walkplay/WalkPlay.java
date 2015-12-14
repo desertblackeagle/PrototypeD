@@ -6,11 +6,11 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class WalkPlay extends JFrame {
-
+	private static WalkPlay walkPlay = null;
 	private JPanel displayPanel = null;
 	private JLabel display = null;
 
-	public WalkPlay() {
+	private WalkPlay() {
 		// TODO Auto-generated constructor stub
 		setSize(400, 400);
 		setLayout(null);
@@ -26,9 +26,13 @@ public class WalkPlay extends JFrame {
 		addKeyListener(new PlayerKeyListener(display));
 	}
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		WalkPlay walk = new WalkPlay();
+	public static WalkPlay getInstance() {
+		if (walkPlay == null) {
+			walkPlay = new WalkPlay();
+			return walkPlay;
+		} else {
+			return walkPlay;
+		}
 	}
 
 }

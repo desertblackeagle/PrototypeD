@@ -15,10 +15,19 @@ public class Direction {
 	private JLabel display = null;
 	private int direction = 1;
 	private URL fileURL = null;
+	private ImageIcon upImage, downImage, leftImage, rightImage;
 
 	public Direction(JLabel display) {
 		// TODO Auto-generated constructor stub
 		this.display = display;
+		fileURL = this.getClass().getResource("/img/up.jpg");
+		upImage = new ImageIcon(fileURL);
+		fileURL = this.getClass().getResource("/img/down.jpg");
+		downImage = new ImageIcon(fileURL);
+		fileURL = this.getClass().getResource("/img/left.jpg");
+		leftImage = new ImageIcon(fileURL);
+		fileURL = this.getClass().getResource("/img/right.jpg");
+		rightImage = new ImageIcon(fileURL);
 	}
 
 	public void show(int directionIn) {
@@ -74,20 +83,16 @@ public class Direction {
 	private void displayStopJpg() {
 		switch (direction) {
 		case 0:
-			fileURL = this.getClass().getResource("/img/up.jpg");
-			display.setIcon(new ImageIcon(fileURL));
+			display.setIcon(upImage);
 			break;
 		case 1:
-			fileURL = this.getClass().getResource("/img/down.jpg");
-			display.setIcon(new ImageIcon(fileURL));
+			display.setIcon(downImage);
 			break;
 		case 2:
-			fileURL = this.getClass().getResource("/img/left.jpg");
-			display.setIcon(new ImageIcon(fileURL));
+			display.setIcon(leftImage);
 			break;
 		case 3:
-			fileURL = this.getClass().getResource("/img/right.jpg");
-			display.setIcon(new ImageIcon(fileURL));
+			display.setIcon(rightImage);
 			break;
 		case 4:
 			break;

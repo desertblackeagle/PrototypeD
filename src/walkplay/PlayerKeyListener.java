@@ -27,12 +27,6 @@ public class PlayerKeyListener implements KeyListener {
 	@Override
 	public void keyReleased(KeyEvent e) {
 		// TODO Auto-generated method stub
-		try {
-			Thread.sleep(1);
-		} catch (InterruptedException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
 		switch (e.getKeyCode()) {
 		case KeyEvent.VK_LEFT:
 			direction.show(LEFT);
