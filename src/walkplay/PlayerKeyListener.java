@@ -6,16 +6,11 @@ import java.awt.event.KeyListener;
 import javax.swing.JLabel;
 
 public class PlayerKeyListener implements KeyListener {
-	final static int UP = 0;
-	final static int DOWN = 1;
-	final static int LEFT = 2;
-	final static int RIGHT = 3;
-	final static int SPACE = 4;
 
 	private Direction direction;
 
-	PlayerKeyListener(JLabel display) {
-		direction = new Direction(display);
+	PlayerKeyListener(Direction direction) {
+		this.direction = direction;
 	}
 
 	@Override
@@ -29,19 +24,19 @@ public class PlayerKeyListener implements KeyListener {
 		// TODO Auto-generated method stub
 		switch (e.getKeyCode()) {
 		case KeyEvent.VK_LEFT:
-			direction.show(LEFT);
+			direction.show(Direction.LEFT);
 			break;
 		case KeyEvent.VK_RIGHT:
-			direction.show(RIGHT);
+			direction.show(Direction.RIGHT);
 			break;
 		case KeyEvent.VK_UP:
-			direction.show(UP);
+			direction.show(Direction.UP);
 			break;
 		case KeyEvent.VK_DOWN:
-			direction.show(DOWN);
+			direction.show(Direction.DOWN);
 			break;
 		case KeyEvent.VK_SPACE:
-			direction.show(SPACE);
+			direction.show(Direction.SPACE);
 			break;
 		default:
 			break;

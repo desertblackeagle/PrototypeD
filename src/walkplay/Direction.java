@@ -6,11 +6,11 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 public class Direction {
-	final static int UP = 0;
-	final static int DOWN = 1;
-	final static int LEFT = 2;
-	final static int RIGHT = 3;
-	final static int SPACE = 4;
+	public final static int UP = 0;
+	public final static int DOWN = 1;
+	public final static int LEFT = 2;
+	public final static int RIGHT = 3;
+	public final static int SPACE = 4;
 
 	private JLabel display = null;
 	private int direction = 1;
@@ -20,6 +20,7 @@ public class Direction {
 	public Direction(JLabel display) {
 		// TODO Auto-generated constructor stub
 		this.display = display;
+		assert display != null : "display Label null";
 		fileURL = this.getClass().getResource("/img/up.jpg");
 		upImage = new ImageIcon(fileURL);
 		fileURL = this.getClass().getResource("/img/down.jpg");
@@ -30,7 +31,7 @@ public class Direction {
 		rightImage = new ImageIcon(fileURL);
 	}
 
-	public void show(int directionIn) {
+	public int show(int directionIn) {
 
 		if (!directionStateIsSame(directionIn)) {
 			try {
@@ -64,7 +65,9 @@ public class Direction {
 			default:
 				break;
 			}
+			return direction;
 		}
+		return 9999;
 	}
 
 	private boolean directionStateIsSame(int direction) {
@@ -77,7 +80,6 @@ public class Direction {
 	private void displayDirection(String direction) {
 		fileURL = this.getClass().getResource("/img/" + direction + ".gif");
 		display.setIcon(new ImageIcon(fileURL));
-		System.out.println(direction);
 	}
 
 	private void displayStopJpg() {
@@ -94,13 +96,9 @@ public class Direction {
 		case 3:
 			display.setIcon(rightImage);
 			break;
-		case 4:
-			break;
 		default:
 			System.out.println("Display Stop JPG ERROR!!");
 			break;
 		}
-		System.out.println("Space");
-
 	}
 }

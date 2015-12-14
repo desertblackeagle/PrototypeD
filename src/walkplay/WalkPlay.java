@@ -9,6 +9,7 @@ public class WalkPlay extends JFrame {
 	private static WalkPlay walkPlay = null;
 	private JPanel displayPanel = null;
 	private JLabel display = null;
+	private Direction direction = null;
 
 	private WalkPlay() {
 		// TODO Auto-generated constructor stub
@@ -23,7 +24,8 @@ public class WalkPlay extends JFrame {
 		add(displayPanel);
 		revalidate();
 		repaint();
-		addKeyListener(new PlayerKeyListener(display));
+		direction = new Direction(display);
+		addKeyListener(new PlayerKeyListener(direction));
 	}
 
 	public static WalkPlay getInstance() {
