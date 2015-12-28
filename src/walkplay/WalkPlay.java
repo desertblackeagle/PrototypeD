@@ -26,6 +26,7 @@ public class WalkPlay extends JFrame {
 		repaint();
 		direction = new Direction(display);
 		addKeyListener(new PlayerKeyListener(direction));
+		System.out.println("123");
 	}
 
 	public static WalkPlay getInstance() {
